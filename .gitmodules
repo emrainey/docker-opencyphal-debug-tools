@@ -1,0 +1,6 @@
+[submodule "cyphal-tools/public_regulated_data_types"]
+	path = cyphal-tools/public_regulated_data_types
+	url = https://github.com/OpenCyphal/public_regulated_data_types
+[submodule "cyphal-tools/wireshark_plugins"]
+	path = cyphal-tools/wireshark_plugins
+	url = https://github.com/OpenCyphal/wireshark_plugins.git

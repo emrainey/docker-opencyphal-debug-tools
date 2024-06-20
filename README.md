@@ -1,6 +1,6 @@
 # [PROTOTYPE] docker-opencyphal-debug-tools
 
-A docker container to use Yakut and Tshark from.
+A docker container to use Yakut from OpenCyphal.org and github.com/opencyphal and Tshark from Wireshark.
 
 ## Building
 

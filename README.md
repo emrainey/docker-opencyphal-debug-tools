@@ -4,16 +4,28 @@ A docker container to use Yakut from OpenCyphal.org and github.com/opencyphal an
 
 ## Building
 
-I use finch locally to build on my Mac.
+I use finch locally to build on my Mac. 
 
 ```bash
 finch build cyphal-tools cyphal-tools
+```
+
+On Linux you can use docker
+
+```bash
+docker buildx build cyphal-tools -t cyphal-tools
 ```
 
 ## Running
 
 ```bash
 finch run -it --network host --cap-add=NET_RAW --cap-add=NET_ADMIN cyphal-tools
+```
+
+or
+
+```bash
+docker run -it --net host cyphal-tools
 ```
 
 You can use both the `tshark` and `yakut` tools in the container to observer multicast Cyphal/UDP

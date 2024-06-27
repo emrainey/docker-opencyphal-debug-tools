@@ -2,6 +2,15 @@
 
 A docker container to use Yakut from OpenCyphal.org and github.com/opencyphal and Tshark from Wireshark.
 
+## Setup
+
+Check out the git submodules to get the latest wire shark filters and the latest Cyphal Regulated Messages. 
+
+```bash
+git submodule init
+git submodule update
+```
+
 ## Building
 
 I use finch locally to build on my Mac. 

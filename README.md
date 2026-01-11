@@ -4,7 +4,7 @@ A docker container to use Yakut from OpenCyphal.org and github.com/opencyphal an
 
 ## Setup
 
-Check out the git submodules to get the latest wire shark filters and the latest Cyphal Regulated Messages. 
+Check out the git submodules to get the latest wire shark filters and the latest Cyphal Regulated Messages.
 
 ```bash
 git submodule init
@@ -13,32 +13,35 @@ git submodule update
 
 ## Building
 
-I use finch locally to build on my Mac. 
+I use finch locally to build on my Mac.
 
 ```bash
-finch build cyphal-tools cyphal-tools
+finch build cyphal-tools --tag docker-opencyphal-debug-tools
 ```
 
 On Linux you can use docker
 
 ```bash
-docker buildx build cyphal-tools -t cyphal-tools
+docker buildx build cyphal-tools -t docker-opencyphal-debug-tools
 ```
 
 ## Running
 
+Use native host to get network access for Cyphal/UDP traffic:
+
 ```bash
-finch run -it --network host --cap-add=NET_RAW --cap-add=NET_ADMIN cyphal-tools
+finch run -it --network host --cap-add=NET_RAW --cap-add=NET_ADMIN docker-opencyphal-debug-tools
 ```
 
 or
 
 ```bash
-docker run -it --net host cyphal-tools
+docker run -it --net host docker-opencyphal-debug-tools
 ```
 
-You can use both the `tshark` and `yakut` tools in the container to observer multicast Cyphal/UDP
-traffic.
+You can either run the container with `--network host` to get direct network access for Cyphal/UDP traffic or expose the UDP port 9382 to access it from outside the container `-p 9382:9382`.
+
+You can use both the `tshark` and `yakut` tools in the container to observe multicast Cyphal/UDP traffic.
 
 ### Terminal Shark
 
@@ -62,6 +65,7 @@ Capturing on 'eth0'
 ```
 
 ### Yakut
+
 See Yakut's readme for more information: [here](https://github.com/opencyphal/yakut)
 
 Be sure to set `UAVCAN__NODE__ID` and `UAVCAN__UDP__IFACE` as appropriate before running `yakut`.
